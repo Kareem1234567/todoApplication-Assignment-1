@@ -187,6 +187,8 @@ app.post("/todos/", validationRequestBody, async (request, response) => {
   try {
     const todoDetails = request.body;
     const { id, todo, priority, status, category, dueDate } = todoDetails;
+    dueDate=strftime(dueDate,"yy-MM-dd");
+    console.log(dueDate)
     const checkTodo = `
     SELECT
         *
